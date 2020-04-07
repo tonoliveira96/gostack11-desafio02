@@ -36,6 +36,7 @@ app.put("/repositories/:id", (request, response) => {
     title,
     url,
     techs,
+    likes
 } = request.body
 
   const repositoryIndex = repositories.findIndex(repo=> repo.id === id)
@@ -44,11 +45,13 @@ app.put("/repositories/:id", (request, response) => {
     return response.status(400).json({error: "Project not found"})
   }
 
+  const like = repositories[repositoryIndex].likes
   const repository = {
     id,
     title,
     url,
     techs,
+    likes: like
   };
 
   repositories[repositoryIndex] = repository;
