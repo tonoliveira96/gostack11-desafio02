@@ -36,7 +36,6 @@ app.put("/repositories/:id", (request, response) => {
     title,
     url,
     techs,
-    likes,
 } = request.body
 
   const repositoryIndex = repositories.findIndex(repo=> repo.id === id)
@@ -50,7 +49,6 @@ app.put("/repositories/:id", (request, response) => {
     title,
     url,
     techs,
-    likes
   };
 
   repositories[repositoryIndex] = repository;
@@ -73,7 +71,18 @@ app.delete("/repositories/:id", (request, response) => {
 });
 
 app.post("/repositories/:id/like", (request, response) => {
-  // TODO
+  const { id } = request.params;
+  const repositoryIndex = repositories.findIndex(repo=> repo.id === id)
+
+  if(repositoryIndex < 0){
+    return response.status(400).json({error: "Project not found"})
+  }
+
+  const repository = repositories.find(repo=>repo.id === id )
+
+  repository.likes +=1;
+
+  return response.json(repository)
 });
 
 module.exports = app;
