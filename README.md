@@ -11,4 +11,4 @@ Desafio 02: Conceitos do Node.js
 1. Faça o clone deste repositório usando `git clone https://github.com/tonoliveira96/gostack11-desafio02.git`
 2. Entre na pasta do projeto usando `cd gostack11-desafio02`
 3. Rode `yarn install` para instalar todas as dependência.
-4. Rode `yarn dev` para rodar o projejeto.
+4. Rode `yarn dev` para rodar o projeto.
